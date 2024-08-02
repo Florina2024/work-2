@@ -15,7 +15,15 @@
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+        max-width: 100%;
     }
+}
+
+@font-face {
+  font-family: myFont;
+  src: url(ROBIMA\ MERTTHA\ SANS\ SERIF.otf);
+  font-family: guideFont;
+  src: url(MerriweatherSans-Regular.ttf);
 }
 
 .header {
@@ -29,18 +37,27 @@
 }
 
 .header h1 {
-    font-size: 40px;
+    font-size: 36px;
     text-align: center;
-    font-family: var(--main-font);
+    font-family: myFont;
     font-weight: 300;
+    
+    color: black;
+    /* font-style: italic; */
 
 }
 
+.header h1 a{
+  text-decoration: none;
+  color: black;
+
+}
 .header h1 span {
     font-weight: 400;
-    font-family: var(--title-font);
-    font-size: 44px;
+    font-family: myFont;
+    font-size: 30px;
     color: #640505;
+    font-style: normal;
 }
 
 .header hr {
@@ -50,8 +67,8 @@
 }
 
 /* Navigation styles */
-.nav__container {
-    margin: 15px auto;
+.nav__menu {
+    margin: 16px auto;
     max-width: 100%;
 }
 
@@ -85,6 +102,21 @@
     border-radius: 50px;
 }
 
+.nav__toggle,
+.nav__close {
+  display: none;
+}
+
+.nav__toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav__menu.show-menu {
+  display: block;
+}
+
+
 .container{
     max-width: 100%;
 }
@@ -102,17 +134,19 @@
 .container h1{
     position: relative;
     color: #fff;
-    font-family: var(--main-font);
-    font-size: 90px;
+    font-family: myFont;
+    font-size: 80px;
     text-align: center;
-    padding-top: 200px;
+    padding-top: 240px;
     font-weight: 400;
+    font-style: italic;
+
 }
 
 .container h1 span {
     font-weight: 400;
-    font-family: var(--title-font);
-    font-size: 90px;
+    font-family: myFont;
+    font-size: 65px;
     color: #640505;
 }
 
@@ -127,7 +161,7 @@
     font-family: var(--subtitle-font) ;
     font-size: 18px;
     text-align: center;
-    padding-top:270px;
+    padding-top:210px;
     font-weight: 200;
     font-style: italic;
     padding-bottom: 20px;
@@ -376,7 +410,7 @@
     text-decoration: none;
     font-family: var(--body-font);
     font-size: 14px;
-    color: rgba(0, 0, 0, 0.61);
+    color: #640505;
     font-weight: bold;
   }
 
@@ -447,18 +481,19 @@
     text-align: center;
     margin-top: 4rem;
     margin-left: 29rem;
-    padding: 9px 18px;
-    background-color: #1D1A1C; 
+    padding: 6px 18px;
+    background-color: transparent;
+    border: 1px solid rgb(23, 23, 23);
     border-radius: 20px;
-    border: none;
-    outline: none;
+    cursor: pointer;
   }
 
 .travel__button a{
-    text-decoration: none;
-    color: #fff;
-    font-family: var(--body-font);
-    font-size: 14px;
+  text-decoration: none;
+  font-family: var(--body-font);
+  font-size: 14px;
+  color: #640505;
+  font-weight: bold;
     
 }
 
@@ -484,14 +519,15 @@
     font-weight: bold;
     color: #fff;
     text-decoration: none;
-    font-family: main;
-    font-weight: 200;
+    font-family: myFont;
+    font-style: italic;
+    font-weight: lighter;
 }
 
 .footer__logo span {
     color: #640505;
-    font-family: var(--title-font);
-    font-size: 1.8rem;
+    font-family: myFont;
+    font-size: 1.5rem;
 }
 
 .footer__content {
@@ -542,4 +578,343 @@
     margin-top: 10px;
     font-size: 0.875rem;
 }
+
+
+
+
+@media (max-width: 780px) { 
+  .header{
+    max-width: 100%;
+  }
+    .nav__menu{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: var(--body-color);
+    backdrop-filter: blur(20px);
+    --webkit-backdrop-filter: blur(20px);
+    width: 60%;
+    height: 100%;
+    padding: 6rem 3rem 0;
+    transition: right 0.4s;
+  }
+  .nav__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+  }
+    .header h1 {
+        font-size: clamp(1.125rem, 4vw, 1.5rem); /* Further adjustment for very small screens */
+    }
+
+    .header h1 span {
+        font-size: clamp(1.25rem, 4vw, 2rem); /* Further adjustment for very small screens */
+    }
+
+    .nav__link {
+        font-size: clamp(0.75rem, 1vw + 0.5rem, 0.875rem); /* Smaller font size for very small screens */
+        padding: 0.5rem 0.75rem; /* Adjust padding */
+    }
+    .nav__close{
+        position: absolute;
+      }
+    
+      .nav__close,
+      .nav__toggle {
+        top: 1rem;
+        right: 1.5rem;
+        display: block;
+        color: var(--title-color);
+      }
+      .show-menu{
+        right: 0;
+      }
+
+      .container h1{
+        font-size: 30px;
+      }
+
+      .container h1 span{
+        font-size: 30px;
+        padding-right: 2px;
+      }
+
+      .histori__text{
+        position: relative;
+        font-size: 12px;
+        align-items: center;
+      }
+
+      .guide__container h1 {
+        font-size: 26px;
+        align-items: center;
+
+      }
+      .guide__container h1 span{
+        font-size: 28px;
+      }
+
+      .guide__content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .visit__container h1{
+      font-size: 30px;
+    }
+
+    .visit__container h1 span{
+      font-size: 40px;
+    }
+
+    .visit__container p{
+      font-size: 14px;
+      text-align: center;
+      padding: 0;
+      padding-bottom: 20px;
+    }
+
+    .carusel{
+      padding: 2rem 5rem;
+    }
+
+    .carusel__card .carusel__item .carusel__img {
+      width: 300px;
+      height: 200px;
+    }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #fdfcfc; /* Color for navigation buttons */
+    margin: 0 2rem;  
+  }
+
+  .about__container{
+    padding: 3rem 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .about__data h2{
+    padding-bottom: 24px;
+    font-size: 22px;
+  }
+
+  .about__data p{
+    font-size: 11px;
+  }
+
+  .about__data button{
+    margin-top: 25px;
+  }
+
+  .travel{
+    padding:0 4rem;
+  }
+
+  .travel h1{
+    font-size: 24px;
+  }
+  .travel h1 span{
+    font-size: 28px;
+  }
+
+  .travel p{
+    font-size: 11px;
+  }
+
+  .travel__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
   
+
+  .travel__content .travel__img {
+    position: absolute;
+    width: 250px;
+    height: 230px;
+    border: 5px solid rgb(247, 243, 243);
+  }
+  .travel__content .travel__name{
+    padding-top: 200px;
+
+  }
+
+  .travel__button {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    margin-left: auto;
+  }
+  }
+
+/* ---Travel guide--- */
+
+.guidetir__container {
+  max-width: 1200px; /* Adjust based on your design needs */
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 6rem;
+}
+
+/* Style for the main heading */
+.guidetir__container h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; /* Adjust size as needed */
+  color: #333; /* Dark color for readability */
+  text-align: center; /* Center the heading */
+  font-weight: 600;
+}
+
+/* Style for individual content blocks */
+.guidetir__content {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for responsive design */
+  padding: 30px 0;
+  /* border-bottom: 1px solid #ddd;  */
+}
+
+.guidetir__data{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+}
+/* Style for image containers */
+.guidetir__image {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+}
+
+/* Style for images */
+.guidetir__img {
+  width: 100%; /* Make images responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Rounded corners for images */
+}
+
+/* Style for text containers */
+.guidetir__text {
+  width: 100%; 
+
+}
+
+/* Style for sub-headings */
+.guidetir__text h3 {
+  font-family: 'Playfair Display', serif; /* Choose a suitable font for sub-headings */
+  font-size: 1.75rem; /* Adjust size as needed */
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* Style for paragraphs */
+.guidetir__text p {
+  font-family: 'Open Sans', sans-serif; /* Choose a suitable font for body text */
+  font-size: 14px; /* Adjust size as needed */
+  line-height: 1.6; /* Increase line height for readability */
+  color: #555; /* Slightly lighter color for body text */
+  margin-bottom: 10px; /* Space between paragraphs */
+}
+.guidetir__text a{
+  color: #555;
+  font-family: 'Open Sans', sans-serif; /* Choose a suitable font for body text */
+  font-size: 14px;
+}
+
+.guidetir__text a:hover{
+  color: #640505;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+.daytrips {
+  padding: 2rem 3rem;
+  margin-top: 4rem;
+}
+
+.daytrips__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.daytrips__data {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  flex: 1 1 calc(33.333% - 2rem); /* Three items per row with gaps */
+  box-sizing: border-box;
+}
+
+.daytrips__data h2 {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: lighter;
+  margin: 0;
+  padding: 12px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+
+}
+
+.daytrips__data h2 a {
+  color: #070707;
+  text-decoration: none;
+  display: block;
+}
+
+.daytrips__text{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.daytrips__text h3{
+  padding-right: 1rem;
+}
+.daytrips__text h3 a:hover i:hover{
+  color: #640505;
+  font-weight: bolder;
+}
+
+.daytrips__text h3 a{
+  color: #070707;
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+}
+
+.daytrips__text h3{
+  color: #640505;
+  font-weight: bolder;
+}
+
+.daytrips__text i{
+  color: #070707;
+  font-size: 16px;
+}
+
+
+.daytrips__image {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding: .5rem;
+}
+
+.daytrips__img {
+   
+  border-radius: 4px;
+  max-width: 24%;
+  height: auto;
+  
+}
